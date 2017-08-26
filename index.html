@@ -61,28 +61,33 @@
 
             <div class="col-md-4">
                 <h3>Giphy Search</h3>
-                <p>Enter a search word to return a random selection of giphy files. The default return is 25 but you can set it for less by entering a quantity to return.<br><br>After returning the small images at the bottom, click on an image to open the gif in the larger window.</p>
+                <p>Enter a search word to return a random selection of giphy files. The default return is 25 but you can set it for less by entering a quantity to return.</p><p>The current settings will only return G rated Gifs.</p><p>After returning the small images at the bottom, click on an image to open the gif in the larger window.</p>
                 <h3>Enter Search Options</h3>
-                <ul>
-                    <li>Lorem Ipsum</li>
-                    <li>Dolor Sit Amet</li>
-                    <li>Consectetur</li>
-                    <li>Adipiscing Elit</li>
-                </ul>
+                <div id="giphysearch">
+                    
+                    <form id="giphy-form">
+                      <label for="giphy-input">Enter a search term</label>
+                      <input type="text" id="giphy-input"><br>
+
+                      <!-- Button triggers new movie to be added -->
+                      <input id="add-search" type="submit" value="search term">
+                    </form>
+
+                </div>
             </div>
 
         </div>
         <!-- /.row -->
 
         <!-- Related Projects Row -->
-        <div class="row">
+        <div class="row" id="thumbnail">
             <div class="col-sm-2 col-xs-4">
                 <!-- spacer -->
             </div>
 
             <div class="col-sm-3 col-xs-6">
                 <a href="#" id="image1">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/200x135" alt="">
+                    <img class="img-responsive Portfoliofolio-item" src="http://placehold.it/200x135" alt="">
                 </a>
             </div>
 
