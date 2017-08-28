@@ -16,7 +16,7 @@
 	border-color: crimson;
 }
 
-/*footer {
-	position: relative;
-	bottom: 10px;
-} */
+#version {
+	text-align: right;
+	font-size: .75em;
+}
