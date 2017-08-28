@@ -32,7 +32,7 @@ $("#add-search").on("click", function (event) {
 
 		$.ajax({
 			url: urlrequest,
-			method: "get"
+			method: "get"	
 		}).done(function (response) {
 
 			console.log(response);
@@ -51,6 +51,7 @@ $("#add-search").on("click", function (event) {
 				switch (rowNumber) {
 					case 0:
 						resultDiv.attr("class","col-md-4 portfolio-item");
+						resultDiv.attr("id","image-row1");
 						p.text("Rating: " + results[i].rating);
 						resultImg.attr("src", results[i].images.fixed_width_still.url);
 						resultImg.attr("data-still", results[i].images.fixed_width_still.url);
@@ -65,6 +66,7 @@ $("#add-search").on("click", function (event) {
 						break;
 					case 1:
 						resultDiv.attr("class","col-md-4 portfolio-item");
+						resultDiv.attr("id","image-row2");
 						p.text("Rating: " + results[i].rating);
 						resultImg.attr("src", results[i].images.fixed_width_still.url);
 						resultImg.attr("data-still", results[i].images.fixed_width_still.url);
@@ -79,6 +81,7 @@ $("#add-search").on("click", function (event) {
 						break;
 					case 2:
 						resultDiv.attr("class","col-md-4 portfolio-item");
+						resultDiv.attr("id","image-row3");
 						p.text("Rating: " + results[i].rating);
 						resultImg.attr("src", results[i].images.fixed_width_still.url);
 						resultImg.attr("data-still", results[i].images.fixed_width_still.url);
