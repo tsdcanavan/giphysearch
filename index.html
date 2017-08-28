@@ -36,10 +36,6 @@
         <!-- Portfolio Item Heading -->
         <div class="row">
 
-            <div class="col-md-2">
-                <!-- spacer -->
-            </div>
-
             <div class="col-lg-10">
                 <h1 class="page-header">The Big Giphy
                     <small>Get Moving</small>
@@ -51,17 +47,13 @@
         <!-- Portfolio Item Row -->
         <div class="row">
             
-            <div class="col-md-2">
-                <!-- spacer -->
-            </div>
-            
-            <div class="col-md-6">
-                <img class="img-responsive" src="https://media.giphy.com/media/3o85xpTdNSwazIr23S/giphy.gif" alt="">
+            <div class="col-md-8" id="image-out">
+                <img class="img-responsive gif" src="https://media.giphy.com/media/3o85xpTdNSwazIr23S/giphy.gif" alt="giphy logo">
             </div>
 
             <div class="col-md-4">
                 <h3>Giphy Search</h3>
-                <p>Enter a search word to return a random selection of giphy files. The default return is 25 but you can set it for less by entering a quantity to return.</p><p>The current settings will only return G rated Gifs.</p><p>After returning the small images at the bottom, click on an image to open the gif in the larger window.</p>
+                <p>Enter a search word to return a random selection of giphy files. The search will return 9 giphy files.</p><p>The current settings will only return G rated Gifs or lower.</p><p>After the images load, click an image to animate it.</p>
                 <h3>Enter Search Options</h3>
                 <div id="giphysearch">
                     
@@ -71,70 +63,18 @@
 
                       <!-- Button triggers new movie to be added -->
                       <input id="add-search" type="submit" value="search term">
+                      <input id="reset-search" type="submit" value="reset">
                     </form>
 
                 </div>
             </div>
 
         </div>
-        <!-- /.row -->
-
-        <!-- Related Projects Row -->
-        <div class="row" id="thumbnail">
-            <div class="col-sm-2 col-xs-4">
-                <!-- spacer -->
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#" id="image1">
-                    <img class="img-responsive Portfoliofolio-item" src="http://placehold.it/200x135" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#" id="image2">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/200x135" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#" id="image3">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/200x135" alt="">
-                </a>
-            </div>
-
-<!--            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/200x135" alt="">
-                </a>
-            </div>
--->
-
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
 
     </div>
-    <!-- /.container -->
 
     <!-- jQuery -->
-<!--    <script src="js/jquery.js"></script>  -->
-
-    <!-- Bootstrap Core JavaScript -->
-<!--    <script src="js/bootstrap.min.js"></script>  -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/js/giphy.js"></script>
 </body>
 

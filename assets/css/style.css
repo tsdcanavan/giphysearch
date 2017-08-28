@@ -11,7 +11,12 @@
 }
 */
 
-.thumbnail {
-	padding: 5px 0 5px 0;
-	margin: 5px 0 5px 0;
+.gif {
+	border-width: 3px;
+	border-color: crimson;
 }
+
+/*footer {
+	position: relative;
+	bottom: 10px;
+} */

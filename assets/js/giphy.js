@@ -1,42 +1,91 @@
 var urlrequest;
-var addHtml;
-var imagesrc;
 var searchWord;
 var offset;
 
+$("#reset-search").on("click", function(event) {
+	  var resetDiv=$("<div>");
+	  var resetImg = $("<img>");
 
 
-  $("#add-search").on("click", function(event) {
-    event.preventDefault();
+	  // update tags
+	  resetImg.attr("src","https://media.giphy.com/media/3o85xpTdNSwazIr23S/giphy.gif");
+	  resetImg.attr("alt","giphy logo");
+	  resetImg.attr("class","img-responsive gif");
 
-	offset=Math.round(Math.random() * 1000);
-	searchWord = $("#giphy-input").val().trim();
-	$("#giphy-input").val("");
-	urlrequest = "http://api.giphy.com/v1/gifs/search?" + 
-				"api_key=cfc1851d752e4fffb7e72a7e3e916bb1" +
-				"&q=" + searchWord + "&limit=10&offset=" + offset +
-				 "&rating=G&lang=en";
+	  resetDiv.append(resetImg);
 
-$.ajax({url:urlrequest,method:"get"}).done(function(response) {
-	  var imgOut=$("<img>");
-	  imgOut.attr("class","img-responsive portfolio-item");
-	  imgOut.attr("src",response.data[0].images.fixed_width_small_still.url);
-	  imgOut.attr("alt","giphy search word colors")
-	  $("#image1").html(imgOut);
+      $("#image-out").append(resultDiv);
 
-	  var imgOut=$("<img>");
-	  imgOut.attr("class","img-responsive portfolio-item");
-	  imgOut.attr("src",response.data[1].images.fixed_width_small_still.url);
-	  imgOut.attr("alt","giphy search word colors")
-	  $("#image2").html(imgOut);
-
-	  var imgOut=$("<img>");
-	  imgOut.attr("class","img-responsive portfolio-item");
-	  imgOut.attr("src",response.data[2].images.fixed_width_small_still.url);
-	  imgOut.attr("alt","giphy search word colors")
-	  $("#image3").html(imgOut);
-
-	console.log(response);
 });
 
+$("#add-search").on("click", function(event) {
+  event.preventDefault();
+
+  offset=Math.round(Math.random() * 1000);
+  searchWord = $("#giphy-input").val().trim();
+  if (searchWord !== "") {
+  $("#giphy-input").val("");
+  urlrequest = "http://api.giphy.com/v1/gifs/search?" + 
+				"api_key=cfc1851d752e4fffb7e72a7e3e916bb1" +
+				"&q=" + searchWord + "&limit=9&offset=" + offset +
+				"&rating=G&lang=en";
+
+  $.ajax({
+  	url:urlrequest,
+  	method:"get"
+  }).done(function(response) {
+
+	console.log(response);
+    var results=response.data;
+
+    $("#image-out").empty();
+
+    // add images
+	for (var i = 0; i < results.length; i++) {
+	  if (((i+1)%3)===0) {
+      $("#image-out").append(resultDiv);
+       }
+
+
+	  // create tags
+	  var resultDiv=$("<div>");
+	  var p = $("<p>");
+	  var resultImg = $("<img>");
+
+
+	  // update tags
+
+	  p.text("Rating: " + results[i].rating);
+	  resultImg.attr("src",results[i].images.fixed_width_still.url);
+	  resultImg.attr("data-still",results[i].images.fixed_width_still.url);
+	  resultImg.attr("data-animate",results[i].images.fixed_width.url);
+	  resultImg.attr("data-state","still");
+	  resultImg.attr("alt",results[i].slug);
+	  resultImg.attr("class","img-responsive portfolio-item gif");
+
+	  resultDiv.append(p);
+	  resultDiv.append(resultImg);
+
+	  }
+
+	console.log("click wait");
+	$(".gif").on("click", function() {
+	  console.log("gif clicked");
+	  var state= $(this).attr("data-state");
+	  if (state==="still") {
+	    $(this).attr("data-state","animate");
+	    $(this).attr("src",$(this).attr("data-animate"));
+	  } else {
+	    $(this).attr("data-state","still");
+	    $(this).attr("src",$(this).attr("data-still"));
+	  }
+	});
+
+
+	});
+
+   }
+
   });
+
+
