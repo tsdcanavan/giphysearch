@@ -25,7 +25,7 @@ $("#add-search").on("click", function(event) {
   searchWord = $("#giphy-input").val().trim();
   if (searchWord !== "") {
   $("#giphy-input").val("");
-  urlrequest = "http://api.giphy.com/v1/gifs/search?" + 
+  urlrequest = "https://api.giphy.com/v1/gifs/search?" + 
 				"api_key=cfc1851d752e4fffb7e72a7e3e916bb1" +
 				"&q=" + searchWord + "&limit=9&offset=" + offset +
 				"&rating=G&lang=en";
