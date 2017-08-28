@@ -42,29 +42,56 @@ $("#add-search").on("click", function (event) {
 
 			// add images
 			for (var i = 0; i < results.length; i++) {
-				if (((i + 1) % 3) === 0) {
-					$("#image-out").append(resultDiv);
-				}
 
-
-				// create tags
 				var resultDiv = $("<div>");
 				var p = $("<p>");
 				var resultImg = $("<img>");
 
+				var rowNumber=Math.floor((i+1)%3);
+				switch (rowNumber) {
+					case 0:
+						resultDiv.attr("class","col-md-4 portfolio-item");
+						p.text("Rating: " + results[i].rating);
+						resultImg.attr("src", results[i].images.fixed_width_still.url);
+						resultImg.attr("data-still", results[i].images.fixed_width_still.url);
+						resultImg.attr("data-animate", results[i].images.fixed_width.url);
+						resultImg.attr("data-state", "still");
+						resultImg.attr("alt", results[i].slug);
+						resultImg.attr("class", "img-responsive portfolio-item gif");
 
-				// update tags
+						resultDiv.append(p);
+						resultDiv.append(resultImg);
+						$("#image-out").append(resultDiv);
+						break;
+					case 1:
+						resultDiv.attr("class","col-md-4 portfolio-item");
+						p.text("Rating: " + results[i].rating);
+						resultImg.attr("src", results[i].images.fixed_width_still.url);
+						resultImg.attr("data-still", results[i].images.fixed_width_still.url);
+						resultImg.attr("data-animate", results[i].images.fixed_width.url);
+						resultImg.attr("data-state", "still");
+						resultImg.attr("alt", results[i].slug);
+						resultImg.attr("class", "img-responsive portfolio-item gif");
 
-				p.text("Rating: " + results[i].rating);
-				resultImg.attr("src", results[i].images.fixed_width_still.url);
-				resultImg.attr("data-still", results[i].images.fixed_width_still.url);
-				resultImg.attr("data-animate", results[i].images.fixed_width.url);
-				resultImg.attr("data-state", "still");
-				resultImg.attr("alt", results[i].slug);
-				resultImg.attr("class", "img-responsive portfolio-item gif");
+						resultDiv.append(p);
+						resultDiv.append(resultImg);
+						$("#image-out").append(resultDiv);
+						break;
+					case 2:
+						resultDiv.attr("class","col-md-4 portfolio-item");
+						p.text("Rating: " + results[i].rating);
+						resultImg.attr("src", results[i].images.fixed_width_still.url);
+						resultImg.attr("data-still", results[i].images.fixed_width_still.url);
+						resultImg.attr("data-animate", results[i].images.fixed_width.url);
+						resultImg.attr("data-state", "still");
+						resultImg.attr("alt", results[i].slug);
+						resultImg.attr("class", "img-responsive portfolio-item gif");
 
-				resultDiv.append(p);
-				resultDiv.append(resultImg);
+						resultDiv.append(p);
+						resultDiv.append(resultImg);
+						$("#image-out").append(resultDiv);
+						break;
+				}
 
 			}
 
