@@ -3,14 +3,17 @@ var searchWord;
 var offset;
 
 
-
+$(document).onload(function() { 
 $("#add-search").on("click", function(event) {
   event.preventDefault();
 
   offset=Math.round(Math.random() * 1000);
   searchWord = $("#giphy-input").val().trim();
   $("#giphy-input").val("");
-  urlrequest = "http://api.giphy.com/v1/gifs/search?" + 
+	// Add the search to a list of recent searches
+	
+	
+	urlrequest = "http://api.giphy.com/v1/gifs/search?" + 
 				"api_key=cfc1851d752e4fffb7e72a7e3e916bb1" +
 				"&q=" + searchWord + "&limit=15&offset=" + offset +
 				"&rating=G&lang=en";
@@ -95,3 +98,4 @@ $(".gif").on("click", function() {
   }
 });
 
+});
