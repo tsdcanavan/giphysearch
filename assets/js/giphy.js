@@ -41,18 +41,19 @@ function loadGifs() {
 			resultDiv.append(resultImg);
 			$("#image-out").append(resultDiv);
 		}
-	console.log("click wait");
-	$(".gif").on("click", function () {
-		console.log("gif clicked");
-		var state = $(this).attr("data-state");
-		if (state === "still") {
-			$(this).attr("data-state", "animate");
-			$(this).attr("src", $(this).attr("data-animate"));
-		} else {
-			$(this).attr("data-state", "still");
-			$(this).attr("src", $(this).attr("data-still"));
-		}
-	});
+
+		console.log("click wait");
+		$(".gif").on("click", function () {
+			console.log("gif clicked");
+			var state = $(this).attr("data-state");
+			if (state === "still") {
+				$(this).attr("data-state", "animate");
+				$(this).attr("src", $(this).attr("data-animate"));
+			} else {
+				$(this).attr("data-state", "still");
+				$(this).attr("src", $(this).attr("data-still"));
+			}
+		});
 	});
 
 };
@@ -91,13 +92,13 @@ $("#add-search").on("click", function (event) {
 
 	}
 
-	$(".recent-list").on("click", function (event) {
-		console.log("recent click")
-		console.log($(this).attr("value"))
-		searchWord = $(this).attr("value");
-		loadGifs();
-	})
 });
+
+$(document).on("click",".recent-list", function (event) {
+	console.log($(this).attr("value"))
+	searchWord = $(this).attr("value");
+	loadGifs();
+})
 
 
 
