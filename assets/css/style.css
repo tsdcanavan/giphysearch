@@ -13,3 +13,9 @@
 	text-align: right;
 	font-size: .75em;
 }
+
+#image-out {
+	position: relative;
+	display: inline-block;
+	float: left;
+}
