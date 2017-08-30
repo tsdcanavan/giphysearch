@@ -27,7 +27,13 @@ function loadGifs() {
 			var p = $("<p>");
 			var resultImg = $("<img>");
 
-			resultDiv.attr("class", "col-md-4 portfolio-item");
+			// create the flexbox
+			resultDiv.attr("class","flex-container");
+			resultDiv.attr("id","flexbox")
+			$("#image-out").append(resultDiv);
+
+
+			resultDiv.attr("class", "col-md-4 portfolio-item flex-item");
 			resultDiv.attr("id", "image-id");
 			p.text("Rating: " + results[i].rating);
 			resultImg.attr("src", results[i].images.fixed_width_still.url);

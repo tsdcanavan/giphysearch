@@ -19,3 +19,18 @@
 	display: inline-block;
 	float: left;
 }
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    width: 400px;
+    height: 400px;
+/*    background-color: lightgrey; */
+}
+
+.flex-item {
+/*    background-color: cornflowerblue; */
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
