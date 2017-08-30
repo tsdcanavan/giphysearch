@@ -54,18 +54,6 @@ function loadGifs() {
 		}
 	});
 	});
-	// console.log("click wait");
-	// $(".gif").on("click", function () {
-	// 	console.log("gif clicked");
-	// 	var state = $(this).attr("data-state");
-	// 	if (state === "still") {
-	// 		$(this).attr("data-state", "animate");
-	// 		$(this).attr("src", $(this).attr("data-animate"));
-	// 	} else {
-	// 		$(this).attr("data-state", "still");
-	// 		$(this).attr("src", $(this).attr("data-still"));
-	// 	}
-	// });
 
 };
 
