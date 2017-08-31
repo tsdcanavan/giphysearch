@@ -8,7 +8,7 @@ function loadGifs() {
 	urlrequest = "https://api.giphy.com/v1/gifs/search?" +
 		"api_key=cfc1851d752e4fffb7e72a7e3e916bb1" +
 		"&q=" + searchWord + "&limit=9&offset=" + offset +
-		"&rating=G&lang=en";
+		"&rating=R&lang=en";
 
 	$.ajax({
 		url: urlrequest,
@@ -20,46 +20,58 @@ function loadGifs() {
 
 		$("#image-out").empty();
 
-		// add images
-		for (var i = 0; i < results.length; i++) {
-
+		if (results.length === 0) {
 			var resultDiv = $("<div>");
 			var p = $("<p>");
-			var resultImg = $("<img>");
-
-			// create the flexbox
-			resultDiv.attr("class","flex-container");
-			resultDiv.attr("id","flexbox")
+			resultDiv.attr("class", "flex-container");
+			resultDiv.attr("id", "flexbox")
 			$("#image-out").append(resultDiv);
-
-
-			resultDiv.attr("class", "col-md-4 portfolio-item flex-item");
-			resultDiv.attr("id", "image-id");
-			p.text("Rating: " + results[i].rating);
-			resultImg.attr("src", results[i].images.fixed_width_still.url);
-			resultImg.attr("data-still", results[i].images.fixed_width_still.url);
-			resultImg.attr("data-animate", results[i].images.fixed_width.url);
-			resultImg.attr("data-state", "still");
-			resultImg.attr("alt", results[i].slug);
-			resultImg.attr("class", "img-responsive portfolio-item gif");
-
+			p.text("No GIFs available - " + offset);
 			resultDiv.append(p);
-			resultDiv.append(resultImg);
 			$("#flexbox").append(resultDiv);
-		}
 
-		console.log("click wait");
-		$(".gif").on("click", function () {
-			console.log("gif clicked");
-			var state = $(this).attr("data-state");
-			if (state === "still") {
-				$(this).attr("data-state", "animate");
-				$(this).attr("src", $(this).attr("data-animate"));
-			} else {
-				$(this).attr("data-state", "still");
-				$(this).attr("src", $(this).attr("data-still"));
+		} else {
+			// add images
+			for (var i = 0; i < results.length; i++) {
+
+				var resultDiv = $("<div>");
+				var p = $("<p>");
+				var resultImg = $("<img>");
+
+				// create the flexbox
+				resultDiv.attr("class", "flex-container");
+				resultDiv.attr("id", "flexbox")
+				$("#image-out").append(resultDiv);
+
+
+				resultDiv.attr("class", "col-md-4 portfolio-item flex-item");
+				resultDiv.attr("id", "image-id");
+				p.text("Rating: " + results[i].rating);
+				resultImg.attr("src", results[i].images.fixed_width_still.url);
+				resultImg.attr("data-still", results[i].images.fixed_width_still.url);
+				resultImg.attr("data-animate", results[i].images.fixed_width.url);
+				resultImg.attr("data-state", "still");
+				resultImg.attr("alt", results[i].slug);
+				resultImg.attr("class", "img-responsive portfolio-item gif");
+
+				resultDiv.append(p);
+				resultDiv.append(resultImg);
+				$("#flexbox").append(resultDiv);
 			}
-		});
+
+			console.log("click wait");
+			$(".gif").on("click", function () {
+				console.log("gif clicked");
+				var state = $(this).attr("data-state");
+				if (state === "still") {
+					$(this).attr("data-state", "animate");
+					$(this).attr("src", $(this).attr("data-animate"));
+				} else {
+					$(this).attr("data-state", "still");
+					$(this).attr("src", $(this).attr("data-still"));
+				}
+			});
+		}
 	});
 
 };
@@ -100,7 +112,7 @@ $("#add-search").on("click", function (event) {
 
 });
 
-$(document).on("click",".recent-list", function (event) {
+$(document).on("click", ".recent-list", function (event) {
 	console.log($(this).attr("value"))
 	searchWord = $(this).attr("value");
 	loadGifs();
