@@ -45,7 +45,7 @@ function loadGifs() {
 
 			resultDiv.append(p);
 			resultDiv.append(resultImg);
-			$("#image-out").append(resultDiv);
+			$("#flexbox").append(resultDiv);
 		}
 
 		console.log("click wait");
